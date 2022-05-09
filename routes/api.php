@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\V1\CategoryController;
+use App\Http\Controllers\API\V1\CommentController;
 use App\Http\Controllers\API\V1\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('posts', [PostController::class, 'getPosts']);
 Route::get('post/{id}', [PostController::class, 'getPost']);
 Route::get('categories', [CategoryController::class, 'getCategories']);
+
+Route::post('comment/add', [CommentController::class, 'addComment']);
+Route::post('comment/reply', [CommentController::class, 'replyToComment']);
