@@ -1,0 +1,22 @@
+.wrapper {
+    background: $gray;
+    height: 100vh;
+    color: $white;
+}
+
+.git {
+    width: 130px;
+    background-image: url('/images/asset/git.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    margin-right: 25px;
+}
+
+.menu {
+    text-align: center;
+}
+
+.telegram {
+    text-align: center;
+    margin-top: 40px;
+}
