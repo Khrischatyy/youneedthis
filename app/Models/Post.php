@@ -22,12 +22,12 @@ class Post extends Model
         'category_id'
         ];
 
-    public function user() {
-        return $this->hasOne(User::class, 'id', 'user_id');
+    public function user(int $user_id) {
+        return User::select('email')->findOrFail($user_id);
     }
 
-    public function category() {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+    public function category(int $category_id) {
+        return Category::select('name')->findOrFail($category_id);
     }
 
     public function setImageAttribute($value)
