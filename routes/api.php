@@ -22,3 +22,5 @@ Route::get('categories', [CategoryController::class, 'getCategories']);
 
 Route::post('comment/add', [CommentController::class, 'addComment']);
 Route::post('comment/reply', [CommentController::class, 'replyToComment']);
+
+require __DIR__.'/auth.php';

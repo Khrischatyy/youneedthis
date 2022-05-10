@@ -13,7 +13,7 @@
                             <label class="control-label" for="name">{{ trans('backpack::base.name') }}</label>
 
                             <div>
-                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="username" id="name" value="{{ old('name') }}">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
