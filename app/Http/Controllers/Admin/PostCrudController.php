@@ -72,11 +72,11 @@ class PostCrudController extends CrudController
             ],
             [
                 'name' => 'user_id',
-                'entity' => 'user',
-                'label' => 'User',
+                'entity' => 'admin',
+                'label' => 'Admin',
                 'type' => 'relationship',
                 'attribute' => "name",
-                'model' => 'App\Models\User'
+                'model' => 'App\Models\Admin'
             ],
             [
                 'name' => 'category_id',

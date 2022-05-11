@@ -20,7 +20,7 @@ Route::get('posts', [PostController::class, 'getPosts']);
 Route::get('post/{id}', [PostController::class, 'getPost']);
 Route::get('categories', [CategoryController::class, 'getCategories']);
 
-Route::post('comment/add', [CommentController::class, 'addComment']);
-Route::post('comment/reply', [CommentController::class, 'replyToComment']);
-
-require __DIR__.'/auth.php';
+Route::middleware('auth:api')->group(function() {
+    Route::post('comment/add', [CommentController::class, 'addComment']);
+    Route::post('comment/reply', [CommentController::class, 'replyToComment']);
+});
