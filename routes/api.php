@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\V1\CategoryController;
 use App\Http\Controllers\API\V1\CommentController;
 use App\Http\Controllers\API\V1\PostController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('posts', [PostController::class, 'getPosts']);
 Route::get('post/{id}', [PostController::class, 'getPost']);
 Route::get('categories', [CategoryController::class, 'getCategories']);
+
+Route::get('/create/noname', [AuthController::class, 'createNoname']); //TODO добавить гуард guest
 
 Route::middleware('auth:api')->group(function() {
     Route::post('comment/add', [CommentController::class, 'addComment']);
