@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/bootstrap';
+@import "common/common";
+@import "sections/header";
+@import "sections/posts";
+
+@import "sections/main";
+@import "sections/categories";
+
+body {
+    background: $black;
+    color: $white;
+    font-family: "BebasNeue-Regular", sans-serif;
+    font-weight: 400;
+}

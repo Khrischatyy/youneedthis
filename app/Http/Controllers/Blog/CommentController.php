@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\API\V1;
+namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
 use App\Models\ReplyToComment;
-use Illuminate\Http\Request;
 
-class CommentController extends BaseController
+class CommentController extends Controller
 {
     public function addComment(CommentRequest $request, Comment $comment)
     {

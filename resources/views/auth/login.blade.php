@@ -9,8 +9,13 @@
 </head>
 <body>
 <form method="POST" action="{{ route('login') }}">
-{{--    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">--}}
-
+{{--    @if($errors->any())--}}
+{{--        <ul class="alert alert-danger">--}}
+{{--            @foreach($errors as $error)--}}
+{{--                <li> {{$error}} </li>--}}
+{{--            @endforeach--}}
+{{--        </ul>--}}
+{{--    @endif--}}
     @csrf
 
     <!-- Email Address -->

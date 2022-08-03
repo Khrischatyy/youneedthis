@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\API\V1\BaseController;
+use App\Http\Controllers\Messager\BaseController;
 use App\Models\Noname;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends BaseController
 {
-    public function getCredentials(Request $request)
+    public static function getCredentials(Request $request)
     {
         $validator = $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
+
+        $user = User::where('email', $request->email)->first();
+
+
+        if ($user &&
+            Hash::check($request->password, $user->password)) {
+            return $user;
+        }
 
 //        \App\Coupon::create([
 //            'code' => $request->get('code'),
@@ -27,10 +36,10 @@ class AuthController extends BaseController
 
     public function createNoname()
     {
-        $noname = Noname::create([
-            'password' => Hash::make(Carbon::now()),
-        ]);
+        $noname = Noname::create([]);
 
-        return $this->sendResponse($noname, 'Noname created successfully');
+        $session = session(['noname_session_id' => Hash::make(Carbon::now())]);
+
+        return $this->sendResponse($session, 'Noname created successfully');
     }
 }

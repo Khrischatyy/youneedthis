@@ -23,15 +23,15 @@ class CategoryCrudController extends CrudController
 
         $this->crud->setColumns([
             [
-                'name' => 'name',
+                'name' => 'title',
                 'label' => 'Name'
             ]
         ]);
 
         $this->crud->addFields([
             [
-                'name' => 'name',
-                'label' => 'Name'
+                'name' => 'title',
+                'label' => 'Title'
             ]
         ]);
     }

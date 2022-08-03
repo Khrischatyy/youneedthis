@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'noname' => [
+            'driver' => 'session',
+            'provider' => 'nonames',
+        ],
+
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
@@ -71,10 +76,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'nonames' => [
+             'driver' => 'eloquent',
+             'model' => App\Models\Noname::class,
+         ],
     ],
 
     /*

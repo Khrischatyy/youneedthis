@@ -16,7 +16,6 @@ class CreateNonamesTable extends Migration
         Schema::create('nonames', function (Blueprint $table) {
             $table->id();
             $table->string('username')->default('noname');
-            $table->string('password');
             $table->timestamps();
         });
     }

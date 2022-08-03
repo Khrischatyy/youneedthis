@@ -20,9 +20,9 @@ class CreatePostsTable extends Migration
             $table->text('text');
             $table->string('image');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_id')->references('id')->on('admins');
+            $table->string('category')->index();
+            $table->foreign('category')->references('title')->on('categories');
             $table->softDeletes();
             $table->timestamps();
         });

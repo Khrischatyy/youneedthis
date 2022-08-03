@@ -44,7 +44,7 @@ class PostCrudController extends CrudController
                 'width'  => '50px',
             ],
             [
-                'name' => 'category_id',
+                'name' => 'category',
                 'label' => 'Category'
             ]
         ]);
@@ -75,31 +75,17 @@ class PostCrudController extends CrudController
                 'entity' => 'admin',
                 'label' => 'Admin',
                 'type' => 'relationship',
-                'attribute' => "name",
-                'model' => 'App\Models\Admin'
+                'attribute' => "username",
+                'model' => 'App\Models\Admin',
             ],
             [
-                'name' => 'category_id',
-                'entity' => 'category',
+                'name' => 'category',
+                'entity' => 'categoryy',
                 'label' => 'Category',
-                'type' => 'relationship',
-                'attribute' => "name",
-                'model' => 'App\Models\Category'
+                'type' => 'text',
+                'attribute' => "title",
+                'model' => 'App\Models\Category',
             ]
         ]);
-    }
-
-    public function setupCreateOperation()
-    {
-        Post::created(function($entry) {
-            Cache::forget('posts');
-        });
-    }
-
-    protected function setupUpdateOperation()
-    {
-        Post::saving(function($entry) {
-            Cache::forget('posts');
-        });
     }
 }

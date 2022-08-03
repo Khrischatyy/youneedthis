@@ -19,15 +19,15 @@ class Post extends Model
         'text',
         'image',
         'user_id',
-        'category_id'
+        'category'
         ];
 
     public function admin() {
         return $this->hasOne(Admin::class, 'id', 'user_id');
     }
 
-    public function category() {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+    public function categoryy() {
+        return $this->hasOne(Category::class, 'title', 'category');
     }
 
     public function setImageAttribute($value)
