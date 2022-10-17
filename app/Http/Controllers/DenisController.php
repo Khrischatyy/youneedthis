@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 class DenisController extends Controller
 {
     const news = [
-
+        [
+            'name' => ''
+        ]
+//        name: 'stringWords',
+//      date: 'date',
+//      raiting: 'numberInt|1,10',
+//      authorName: 'nameFirst',
+//      body: 'stringLong',
     ];
 
     public function getPosts(Request $request)
     {
         return collect([
-            '1' => '1',
+            '1' =>  fake()->name(),
             '2' => '3',
         ])->toJson();
     }
