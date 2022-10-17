@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class DenisController extends Controller
@@ -13,17 +11,17 @@ class DenisController extends Controller
 
     public function getPosts(Request $request)
     {
-        return json_encode([
+        return collect([
             '1' => '1',
-            '2' => '',
-        ]);
+            '2' => '3',
+        ])->toJson();
     }
 
-    public function getPost($id)
-    {
-        return json_encode([
-            '1' => '1',
-            '2' => '',
-        ]);
-    }
+//    public function getPost($id)
+//    {
+//        return json_encode([
+//            '1' => '1',
+//            '2' => '',
+//        ]);
+//    }
 }
