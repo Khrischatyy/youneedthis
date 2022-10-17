@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/news', [\App\Http\Controllers\DenisController::class, 'getPosts']);
+Route::get('/news/{id}', [\App\Http\Controllers\DenisController::class, 'getPost']);
