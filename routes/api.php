@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,3 +12,5 @@
 |
 */
 
+Route::get('/news', [\App\Http\Controllers\DenisController::class, 'list']);
+Route::get('/news/{id}', [\App\Http\Controllers\DenisController::class, 'index']);
