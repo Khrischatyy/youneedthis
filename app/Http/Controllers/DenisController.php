@@ -713,6 +713,7 @@ class DenisController extends Controller
         $number = $request->get('numberPage');
         $count = $request->get('count') ?? 20;
         $sort = $request->get('sort') ?? 'desc';
+        $filters = $request->get('filters');
 
         usort($this->news, function($a, $b) use ($sort) {
             if ($sort == 'desc') {
@@ -726,9 +727,18 @@ class DenisController extends Controller
 
         $from = ($number - 1) * $count;
         $to = $from + $count;
+
         for ($i = $from; $i < $to; $i++) {
             if (isset($this->news[$i])) {
-                array_push($newsPaginated, $this->news[$i]);
+
+                if (isset($filters)) {
+                    if (in_array($this->news[$i]['id'], $filters)) {
+                        array_push($newsPaginated, $this->news[$i]);
+                    }
+                } else {
+                    array_push($newsPaginated, $this->news[$i]);
+                };
+
             }
         }
 
@@ -739,6 +749,7 @@ class DenisController extends Controller
     {
         foreach ($this->news as $new) {
             if ($new['id'] == $id) {
+                $new['body'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
                 return collect($new)->toJson();
             }
         }
